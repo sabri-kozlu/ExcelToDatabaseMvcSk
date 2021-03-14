@@ -1,0 +1,67 @@
+﻿@using ExcelToDatabaseMvcSk.Models
+@model List<DosyaVerileri>
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+<body>
+    <a href="/Home/Hesapla/" class="btn btn-primary">Hesaplayıp Veri Tabanına Aktar</a>
+    <br />
+    <br />
+
+    <table id="tbl1" class=" table table-bordered">
+        <thead>
+            <tr>
+
+                <th>BİLANÇO</th>
+                <th>ÖNCEKİ YIL</th>
+                <th>CARİ YIL</th>
+
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+            
+
+
+            <tr>
+                <td>@item.Bilanco</td>
+                <td>@item.OncekiYil</td>
+                <td>@item.CariYil</td>
+                
+
+            </tr>
+
+
+                }
+
+            </tbody>
+
+        </table>
+    </body>
+</html>

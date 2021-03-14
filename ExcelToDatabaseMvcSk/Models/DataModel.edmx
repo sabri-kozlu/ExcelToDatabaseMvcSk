@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ExcelImportDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DosyaVerileri">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Bilanco" Type="varchar" MaxLength="200" />
+          <Property Name="OncekiYil" Type="money" />
+          <Property Name="CariYil" Type="money" />
+        </EntityType>
+        <EntityType Name="HesaplananVeri">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Bilanco" Type="nvarchar" MaxLength="150" />
+          <Property Name="OncekiYil" Type="money" />
+          <Property Name="CariYil" Type="money" />
+          <Property Name="Sonuc" Type="money" />
+        </EntityType>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="Users1">
+          <Key>
+            <PropertyRef Name="Sno" />
+          </Key>
+          <Property Name="Sno" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Age" Type="int" />
+        </EntityType>
+        <EntityType Name="Users2">
+          <Key>
+            <PropertyRef Name="SNo" />
+          </Key>
+          <Property Name="SNo" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="500" />
+          <Property Name="Age" Type="int" />
+        </EntityType>
+        <EntityContainer Name="ExcelImportDBModelStoreContainer">
+          <EntitySet Name="DosyaVerileri" EntityType="Self.DosyaVerileri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HesaplananVeri" EntityType="Self.HesaplananVeri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserProfile" EntityType="Self.UserProfile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users1" EntityType="Self.Users1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users2" EntityType="Self.Users2" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ExcelImportDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DosyaVerileri">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Bilanco" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="OncekiYil" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="CariYil" Type="Decimal" Precision="19" Scale="4" />
+        </EntityType>
+        <EntityType Name="HesaplananVeri">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Bilanco" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="OncekiYil" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="CariYil" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Sonuc" Type="Decimal" Precision="19" Scale="4" />
+        </EntityType>
+        <EntityType Name="Users1">
+          <Key>
+            <PropertyRef Name="Sno" />
+          </Key>
+          <Property Name="Sno" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Age" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Users2">
+          <Key>
+            <PropertyRef Name="SNo" />
+          </Key>
+          <Property Name="SNo" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Age" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="ExcelImportDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DosyaVerileri" EntityType="Self.DosyaVerileri" />
+          <EntitySet Name="HesaplananVeri" EntityType="Self.HesaplananVeri" />
+          <EntitySet Name="Users1" EntityType="Self.Users1" />
+          <EntitySet Name="Users2" EntityType="Self.Users2" />
+          <EntitySet Name="UserProfile" EntityType="ExcelImportDBModel.UserProfile" />
+        </EntityContainer>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ExcelImportDBModelStoreContainer" CdmEntityContainer="ExcelImportDBEntities">
+          <EntitySetMapping Name="DosyaVerileri">
+            <EntityTypeMapping TypeName="ExcelImportDBModel.DosyaVerileri">
+              <MappingFragment StoreEntitySet="DosyaVerileri">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Bilanco" ColumnName="Bilanco" />
+                <ScalarProperty Name="OncekiYil" ColumnName="OncekiYil" />
+                <ScalarProperty Name="CariYil" ColumnName="CariYil" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HesaplananVeri">
+            <EntityTypeMapping TypeName="ExcelImportDBModel.HesaplananVeri">
+              <MappingFragment StoreEntitySet="HesaplananVeri">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Bilanco" ColumnName="Bilanco" />
+                <ScalarProperty Name="OncekiYil" ColumnName="OncekiYil" />
+                <ScalarProperty Name="CariYil" ColumnName="CariYil" />
+                <ScalarProperty Name="Sonuc" ColumnName="Sonuc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users1">
+            <EntityTypeMapping TypeName="ExcelImportDBModel.Users1">
+              <MappingFragment StoreEntitySet="Users1">
+                <ScalarProperty Name="Sno" ColumnName="Sno" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users2">
+            <EntityTypeMapping TypeName="ExcelImportDBModel.Users2">
+              <MappingFragment StoreEntitySet="Users2">
+                <ScalarProperty Name="SNo" ColumnName="SNo" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserProfile">
+            <EntityTypeMapping TypeName="ExcelImportDBModel.UserProfile">
+              <MappingFragment StoreEntitySet="UserProfile">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

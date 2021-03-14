@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Ana Sayfa";
+}
+
+
+
+
+
+
+<fieldset >
+    <legend> Kullanıcı  Arayüzü </legend>
+
+@if (Session["UserName"] != null)
+{<text >
+    Hoşgeldin Kullanıcı @Session["UserName"].ToString() </text>  } </fieldset>
+
+
+<h3>@ViewBag.Message</h3>
+
+<div class="d-grid gap-2">
+    <button onclick="location='/Home/About'" class="btn btn-primary" type="button">Excel Yükle</button>
+    
+</div>

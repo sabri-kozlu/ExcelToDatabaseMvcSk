@@ -1,0 +1,38 @@
+﻿@model ExcelToDatabaseMvcSk.Models.ExcelImportDBEntities
+
+@using (Html.BeginForm("Listele", "Home", FormMethod.Post))
+{
+
+    <table>
+        <tr>
+            <td colspan="4">
+
+                <button onclick="location='/Home/Hesapla'" type="button" class="btn btn-primary btn-lg btn-block">Hesapla Ve Veritabanına Kaydet</button>
+
+            </td>
+        </tr>
+    </table>
+    <table class="table table-sm table-dark" cellpadding="2" cellspacing="2" border="1">
+        <tr>
+            <th scope="col">BİLANÇO</th>
+            <th scope="col">ÖNCEKİ YIL</th>
+            <th scope="col">CARİ YIL</th>
+
+        </tr>
+        <tbody>
+            @foreach (var item in ViewBag.ListDetay)
+            {
+                <tr class="bg-success">
+
+                    <td>@item.Bilanco</td>
+                    <td>@item.OncekiYil</td>
+                    <td>@item.CariYil</td>
+
+                </tr>
+            }
+
+        </tbody>
+    </table>
+
+
+}

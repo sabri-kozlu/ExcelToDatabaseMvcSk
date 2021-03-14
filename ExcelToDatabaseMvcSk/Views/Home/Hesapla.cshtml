@@ -1,0 +1,68 @@
+﻿
+@model ExcelToDatabaseMvcSk.Models.ExcelImportDBEntities
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+<body>
+    
+    <br />
+    <br />
+
+
+    @using (Html.BeginForm("Hesapla", "Home", FormMethod.Post))
+    {
+
+
+        <table class="table table-striped" cellpadding="2" cellspacing="2" border="1">
+            <tr>
+                <th>BİLANÇO</th>
+                <th>ÖNCEKİ YIL</th>
+                <th>CARİ YIL</th>
+                <th>SONUC</th>
+
+            </tr>
+            <tbody>
+                @foreach (var item in ViewBag.ListDetay)
+                {
+                    <tr>
+                        <td>@item.Bilanco</td>
+                        <td>@item.OncekiYil</td>
+                        <td>@item.CariYil</td>
+                        <td>@item.Sonuc</td>
+
+
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+
+       
+    }
+    
+
+    
+</body>
+</html>

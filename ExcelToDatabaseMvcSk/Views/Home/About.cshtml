@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Excel Yükleme";
+}
+
+
+
+@using (Html.BeginForm("Upload", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <table class="table table-success table-striped">
+        <tr>
+            <td> File: </td>
+            <td>
+                <input type="file"
+                       name="UploadedFile" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button class="btn btn-primary" type="submit"> Yükle </button>
+            </td>
+        </tr>
+    </table>
+}
